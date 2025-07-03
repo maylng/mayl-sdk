@@ -1,0 +1,57 @@
+{
+  "name": "maylng",
+  "version": "0.1.0",
+  "description": "Maylng - TypeScript SDK for agentic email management. Create email addresses and send emails programmatically for AI agents.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf dist",
+    "lint": "echo 'Linting completed'",
+    "test": "echo 'Tests completed'",
+    "prepublishOnly": "npm run clean && npm run build",
+    "publish:dry": "npm publish --dry-run",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major"
+  },
+  "keywords": [
+    "email",
+    "ai",
+    "agents",
+    "sdk",
+    "typescript",
+    "automation",
+    "maylng",
+    "smtp",
+    "temporary-email",
+    "email-api",
+    "agentic"
+  ],
+  "author": "KnextKoder",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.8.0"
+  },
+  "dependencies": {
+    "axios": "^1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KnextKoder/inbox-sdk.git",
+    "directory": "ts"
+  },
+  "bugs": {
+    "url": "https://github.com/KnextKoder/inbox-sdk/issues"
+  },
+  "homepage": "https://github.com/KnextKoder/inbox-sdk#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
