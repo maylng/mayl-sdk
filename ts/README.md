@@ -29,7 +29,7 @@ import { createInboxSDK } from 'maylng';
 
 // Initialize the SDK
 const inbox = createInboxSDK({
-  apiKey: 'your-api-key-here'
+  apiKey: 'your-api-key'
 });
 
 // Create a temporary email address
