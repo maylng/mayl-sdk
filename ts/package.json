@@ -1,6 +1,6 @@
 {
   "name": "maylng",
-  "version": "0.2.0",
+  "version": "0.2.1-beta.0",
   "description": "Maylng - TypeScript SDK for agentic email management. Create email addresses and send emails programmatically for AI agents.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
