@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+include DEVELOPMENT.md
+recursive-include maylng *.py
+recursive-include examples *.py
+recursive-include tests *.py
+global-exclude *.pyc
+global-exclude __pycache__
+prune build
+prune dist
+prune *.egg-info
