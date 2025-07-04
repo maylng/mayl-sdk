@@ -9,16 +9,16 @@ npm install maylng
 ## Quick Start
 
 ```typescript
-import { createInboxSDK } from 'maylng';
+import { createMayl } from 'maylng';
 
 // Initialize the SDK
-const inbox = createInboxSDK({
+const mayl = createMayl({
   apiKey: 'your-api-key-here',
   // baseUrl: 'https://api.your-domain.com' // Optional, defaults to production
 });
 
 // Health check
-const health = await inbox.healthCheck();
+const health = await mayl.healthCheck();
 console.log('API Status:', health.status);
 ```
 
@@ -28,7 +28,7 @@ console.log('API Status:', health.status);
 
 ```typescript
 // Create a temporary email that expires in 30 minutes
-const tempEmail = await inbox.emailAddresses.create({
+const tempEmail = await mayl.emailAddresses.create({
   type: 'temporary',
   expirationMinutes: 30,
   prefix: 'agent-001', // Optional custom prefix
@@ -46,7 +46,7 @@ console.log('Expires at:', tempEmail.expiresAt);
 
 ```typescript
 // Create a persistent email address
-const persistentEmail = await inbox.emailAddresses.create({
+const persistentEmail = await mayl.emailAddresses.create({
   type: 'persistent',
   prefix: 'support',
   domain: 'your-domain.com', // Optional custom domain
@@ -65,7 +65,7 @@ console.log('Persistent email:', persistentEmail.email);
 
 ```typescript
 // List all email addresses with pagination
-const emailList = await inbox.emailAddresses.list({
+const emailList = await mayl.emailAddresses.list({
   type: 'temporary', // Filter by type
   status: 'active',  // Filter by status
   pagination: {
@@ -83,7 +83,7 @@ emailList.items.forEach(email => {
 ### Get Email Address Details
 
 ```typescript
-const emailAddress = await inbox.emailAddresses.get('email-address-id');
+const emailAddress = await mayl.emailAddresses.get('email-address-id');
 console.log('Email details:', emailAddress);
 ```
 
@@ -91,7 +91,7 @@ console.log('Email details:', emailAddress);
 
 ```typescript
 // Update metadata or status
-const updatedEmail = await inbox.emailAddresses.update('email-address-id', {
+const updatedEmail = await mayl.emailAddresses.update('email-address-id', {
   metadata: {
     ...existingMetadata,
     lastUpdated: new Date().toISOString()
@@ -104,7 +104,7 @@ const updatedEmail = await inbox.emailAddresses.update('email-address-id', {
 
 ```typescript
 // Extend a temporary email by 60 more minutes
-const extendedEmail = await inbox.emailAddresses.extend('temp-email-id', 60);
+const extendedEmail = await mayl.emailAddresses.extend('temp-email-id', 60);
 console.log('New expiration:', extendedEmail.expiresAt);
 ```
 
@@ -113,7 +113,7 @@ console.log('New expiration:', extendedEmail.expiresAt);
 ### Basic Email
 
 ```typescript
-const sentEmail = await inbox.emails.send({
+const sentEmail = await mayl.emails.send({
   fromEmailId: 'your-email-address-id',
   to: [
     { email: 'user@example.com', name: 'John Doe' }
@@ -133,7 +133,7 @@ import fs from 'fs';
 
 const fileContent = fs.readFileSync('./document.pdf');
 
-const sentEmail = await inbox.emails.send({
+const sentEmail = await mayl.emails.send({
   fromEmailId: 'your-email-address-id',
   to: [{ email: 'user@example.com' }],
   subject: 'Document Attached',
@@ -155,7 +155,7 @@ const sentEmail = await inbox.emails.send({
 const scheduledTime = new Date();
 scheduledTime.setHours(scheduledTime.getHours() + 1);
 
-const scheduledEmail = await inbox.emails.send({
+const scheduledEmail = await mayl.emails.send({
   fromEmailId: 'your-email-address-id',
   to: [{ email: 'user@example.com' }],
   subject: 'Scheduled Email',
@@ -169,7 +169,7 @@ console.log('Email scheduled for:', scheduledTime);
 ### Reply to Thread
 
 ```typescript
-const replyEmail = await inbox.emails.send({
+const replyEmail = await mayl.emails.send({
   fromEmailId: 'your-email-address-id',
   to: [{ email: 'user@example.com' }],
   subject: 'Re: Original Subject',
@@ -183,7 +183,7 @@ const replyEmail = await inbox.emails.send({
 ### List Sent Emails
 
 ```typescript
-const sentEmails = await inbox.emails.list({
+const sentEmails = await mayl.emails.list({
   fromEmailId: 'your-email-address-id',
   status: 'delivered',
   since: new Date('2024-01-01'),
@@ -198,7 +198,7 @@ sentEmails.items.forEach(email => {
 ### Check Delivery Status
 
 ```typescript
-const status = await inbox.emails.getDeliveryStatus('email-id');
+const status = await mayl.emails.getDeliveryStatus('email-id');
 console.log('Delivery status:', status.status);
 console.log('Opens:', status.opens);
 console.log('Clicks:', status.clicks);
@@ -207,7 +207,7 @@ console.log('Clicks:', status.clicks);
 ### Cancel Scheduled Email
 
 ```typescript
-await inbox.emails.cancel('scheduled-email-id');
+await mayl.emails.cancel('scheduled-email-id');
 console.log('Scheduled email cancelled');
 ```
 
@@ -222,7 +222,7 @@ import {
 } from 'maylng';
 
 try {
-  const email = await inbox.emails.send({
+  const email = await mayl.emails.send({
     fromEmailId: 'invalid-id',
     to: [{ email: 'user@example.com' }],
     subject: 'Test',
@@ -248,7 +248,7 @@ try {
 ### Custom HTTP Client Configuration
 
 ```typescript
-const inbox = createInboxSDK({
+const mayl = createMayl({
   apiKey: 'your-api-key',
   baseUrl: 'https://api.your-domain.com',
   timeout: 60000 // 60 seconds
@@ -258,7 +258,7 @@ const inbox = createInboxSDK({
 ### Account Information
 
 ```typescript
-const accountInfo = await inbox.getAccountInfo();
+const accountInfo = await mayl.getAccountInfo();
 console.log('Account plan:', accountInfo.plan);
 console.log('Email addresses used:', accountInfo.emailAddressUsed, '/', accountInfo.emailAddressLimit);
 console.log('Emails sent this month:', accountInfo.emailsSentThisMonth, '/', accountInfo.emailLimitPerMonth);
@@ -271,7 +271,7 @@ console.log('Emails sent this month:', accountInfo.emailsSentThisMonth, '/', acc
 const agents = ['agent-001', 'agent-002', 'agent-003'];
 
 const emailPromises = agents.map(agentId => 
-  inbox.emailAddresses.create({
+  mayl.emailAddresses.create({
     type: 'temporary',
     prefix: agentId,
     expirationMinutes: 120,

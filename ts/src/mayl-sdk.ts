@@ -1,13 +1,13 @@
 import { HTTPClient } from './http-client';
 import { EmailAddressService } from './email-address-service';
 import { EmailService } from './email-service';
-import { InboxSDKConfig } from './types';
+import { MaylConfig } from './types';
 import { ValidationError } from './errors';
 
 /**
- * Main InboxSDK client for managing email addresses and sending emails
+ * Main Mayl client for managing email addresses and sending emails
  */
-export class InboxSDK {
+export class Mayl {
   private httpClient: HTTPClient;
   
   /** Email address management service */
@@ -16,7 +16,7 @@ export class InboxSDK {
   /** Email sending service */
   public readonly emails: EmailService;
 
-  constructor(config: InboxSDKConfig) {
+  constructor(config: MaylConfig) {
     this.validateConfig(config);
     
     this.httpClient = new HTTPClient(config);
@@ -115,7 +115,7 @@ export class InboxSDK {
   /**
    * Validate SDK configuration
    */
-  private validateConfig(config: InboxSDKConfig): void {
+  private validateConfig(config: MaylConfig): void {
     if (!config || typeof config !== 'object') {
       throw new ValidationError('Configuration object is required');
     }
@@ -137,8 +137,8 @@ export class InboxSDK {
 }
 
 /**
- * Create a new InboxSDK instance
+ * Create a new Mayl instance
  */
-export function createInboxSDK(config: InboxSDKConfig): InboxSDK {
-  return new InboxSDK(config);
+export function createMayl(config: MaylConfig): Mayl {
+  return new Mayl(config);
 }

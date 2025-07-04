@@ -44,13 +44,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KnextKoder/inbox-sdk.git",
+    "url": "git+https://github.com/maylng/mayl-sdk.git",
     "directory": "ts"
   },
   "bugs": {
-    "url": "https://github.com/KnextKoder/inbox-sdk/issues"
+    "url": "https://github.com/maylng/mayl-sdk-sdk/issues"
   },
-  "homepage": "https://github.com/KnextKoder/inbox-sdk#readme",
+  "homepage": "https://github.com/maylng/mayl-sdk#readme",
   "engines": {
     "node": ">=16.0.0"
   }

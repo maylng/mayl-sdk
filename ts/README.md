@@ -25,21 +25,21 @@ npm install maylng
 ## Quick Start
 
 ```typescript
-import { createInboxSDK } from 'maylng';
+import { createMayl } from 'maylng';
 
 // Initialize the SDK
-const inbox = createInboxSDK({
+const mayl = createMayl({
   apiKey: 'your-api-key'
 });
 
 // Create a temporary email address
-const tempEmail = await inbox.emailAddresses.create({
+const tempEmail = await mayl.emailAddresses.create({
   type: 'temporary',
   expirationMinutes: 30
 });
 
 // Send an email
-const sentEmail = await inbox.emails.send({
+const sentEmail = await mayl.emails.send({
   fromEmailId: tempEmail.id,
   to: [{ email: 'user@example.com', name: 'John Doe' }],
   subject: 'Hello from AI Agent',
@@ -71,7 +71,7 @@ Main client class for interacting with the API.
 #### Constructor
 
 ```typescript
-const inbox = createInboxSDK(config: InboxSDKConfig)
+const mayl = createMayl(config: MaylConfig)
 ```
 
 #### Methods
@@ -83,7 +83,7 @@ const inbox = createInboxSDK(config: InboxSDKConfig)
 
 ### Email Address Service
 
-Accessible via `inbox.emailAddresses`
+Accessible via `mayl.emailAddresses`
 
 #### Methods_
 
@@ -96,7 +96,7 @@ Accessible via `inbox.emailAddresses`
 
 ### Email Service
 
-Accessible via `inbox.emails`
+Accessible via `mayl.emails`
 
 #### Methods__
 
@@ -110,7 +110,7 @@ Accessible via `inbox.emails`
 ## Configuration
 
 ```typescript
-interface InboxSDKConfig {
+interface MaylConfig {
   apiKey: string;           // Required: Your API key
   baseUrl?: string;         // Optional: Custom API base URL
   timeout?: number;         // Optional: Request timeout in ms (default: 30000)
@@ -127,10 +127,10 @@ import {
   ValidationError,
   RateLimitError,
   EmailSendError 
-} from '@inbox-sdk/typescript';
+} from 'maylng';
 
 try {
-  await inbox.emails.send(emailOptions);
+  await mayl.emails.send(emailOptions);
 } catch (error) {
   if (error instanceof AuthenticationError) {
     // Handle authentication issues
@@ -200,7 +200,7 @@ The SDK is built with TypeScript and provides complete type definitions. No addi
 
 ```typescript
 // Full IntelliSense support
-const email: EmailAddress = await inbox.emailAddresses.create({
+const email: EmailAddress = await mayl.emailAddresses.create({
   type: 'temporary', // Autocomplete: 'temporary' | 'persistent'
   expirationMinutes: 30
 });
@@ -231,10 +231,10 @@ When rate limited, the SDK will throw a `RateLimitError` with retry information.
 
 ## Support
 
-- 📖 [Documentation](https://docs.inbox-sdk.com)
-- 💬 [Discord Community](https://discord.gg/inbox-sdk)
+- 📖 [Documentation](https://docs.maylng.com)
+- 💬 [Discord Community](https://discord.gg/maylng)
 - 🐛 [Issue Tracker](https://github.com/KnextKoder/inbox-sdk/issues)
-- 📧 [Email Support](mailto:support@inbox-sdk.com)
+- 📧 [Email Support](mailto:support@maylng.com)
 
 ## License
 

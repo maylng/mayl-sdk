@@ -1,7 +1,7 @@
 /**
- * Configuration options for the InboxSDK client
+ * Configuration options for the Mayl client
  */
-export interface InboxSDKConfig {
+export interface MaylConfig {
   /** API key for authentication */
   apiKey: string;
   /** Base URL for the API (defaults to production) */

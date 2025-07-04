@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
-import { InboxSDKConfig, APIResponse } from './types';
+import { MaylConfig, APIResponse } from './types';
 import {
-  InboxSDKError,
+  MaylError,
   AuthenticationError,
   AuthorizationError,
   NotFoundError,
@@ -17,11 +17,11 @@ import {
  */
 export class HTTPClient {
   private client: AxiosInstance;
-  private readonly config: Required<InboxSDKConfig>;
+  private readonly config: Required<MaylConfig>;
 
-  constructor(config: InboxSDKConfig) {
+  constructor(config: MaylConfig) {
     this.config = {
-      baseUrl: 'https://api.inbox-sdk.com', // TODO: Update with actual API URL
+      baseUrl: 'https://api.maylng.com', // TODO: Update with actual API URL
       timeout: 30000,
       ...config
     };
@@ -73,7 +73,7 @@ export class HTTPClient {
   /**
    * Handle API errors and convert them to custom error types
    */
-  private handleAPIError(error: AxiosError): InboxSDKError {
+  private handleAPIError(error: AxiosError): MaylError {
     const requestId = error.config?.headers?.['X-Request-ID'] as string;
 
     // Network errors (no response)

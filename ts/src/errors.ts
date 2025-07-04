@@ -1,7 +1,7 @@
 /**
- * Base class for all InboxSDK errors
+ * Base class for all Mayl errors
  */
-export abstract class InboxSDKError extends Error {
+export abstract class MaylError extends Error {
   abstract readonly code: string;
   abstract readonly statusCode?: number;
 
@@ -15,7 +15,7 @@ export abstract class InboxSDKError extends Error {
 /**
  * Authentication related errors
  */
-export class AuthenticationError extends InboxSDKError {
+export class AuthenticationError extends MaylError {
   readonly code = 'AUTHENTICATION_ERROR';
   readonly statusCode = 401;
 
@@ -27,7 +27,7 @@ export class AuthenticationError extends InboxSDKError {
 /**
  * Authorization related errors
  */
-export class AuthorizationError extends InboxSDKError {
+export class AuthorizationError extends MaylError {
   readonly code = 'AUTHORIZATION_ERROR';
   readonly statusCode = 403;
 
@@ -39,7 +39,7 @@ export class AuthorizationError extends InboxSDKError {
 /**
  * Resource not found errors
  */
-export class NotFoundError extends InboxSDKError {
+export class NotFoundError extends MaylError {
   readonly code = 'NOT_FOUND_ERROR';
   readonly statusCode = 404;
 
@@ -52,7 +52,7 @@ export class NotFoundError extends InboxSDKError {
 /**
  * Validation errors for invalid input
  */
-export class ValidationError extends InboxSDKError {
+export class ValidationError extends MaylError {
   readonly code = 'VALIDATION_ERROR';
   readonly statusCode = 400;
 
@@ -64,7 +64,7 @@ export class ValidationError extends InboxSDKError {
 /**
  * Rate limiting errors
  */
-export class RateLimitError extends InboxSDKError {
+export class RateLimitError extends MaylError {
   readonly code = 'RATE_LIMIT_ERROR';
   readonly statusCode = 429;
 
@@ -80,7 +80,7 @@ export class RateLimitError extends InboxSDKError {
 /**
  * Network or connection errors
  */
-export class NetworkError extends InboxSDKError {
+export class NetworkError extends MaylError {
   readonly code = 'NETWORK_ERROR';
   readonly statusCode = 0; // No HTTP status for network errors
 
@@ -92,7 +92,7 @@ export class NetworkError extends InboxSDKError {
 /**
  * Server errors (5xx responses)
  */
-export class ServerError extends InboxSDKError {
+export class ServerError extends MaylError {
   readonly code = 'SERVER_ERROR';
 
   constructor(
@@ -107,7 +107,7 @@ export class ServerError extends InboxSDKError {
 /**
  * Timeout errors
  */
-export class TimeoutError extends InboxSDKError {
+export class TimeoutError extends MaylError {
   readonly code = 'TIMEOUT_ERROR';
   readonly statusCode = 408; // Request Timeout
 
@@ -119,7 +119,7 @@ export class TimeoutError extends InboxSDKError {
 /**
  * Email address related errors
  */
-export class EmailAddressError extends InboxSDKError {
+export class EmailAddressError extends MaylError {
   readonly code = 'EMAIL_ADDRESS_ERROR';
   readonly statusCode = 400;
 
@@ -131,7 +131,7 @@ export class EmailAddressError extends InboxSDKError {
 /**
  * Email sending related errors
  */
-export class EmailSendError extends InboxSDKError {
+export class EmailSendError extends MaylError {
   readonly code = 'EMAIL_SEND_ERROR';
   readonly statusCode = 400;
 

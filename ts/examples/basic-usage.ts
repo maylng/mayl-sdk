@@ -1,4 +1,4 @@
-import { createInboxSDK } from '../src/index';
+import { createMayl } from '../src/index';
 
 /**
 ` * Example usage of the Maylng TypeScript library
@@ -12,7 +12,7 @@ import { createInboxSDK } from '../src/index';
 
 async function main() {
   // Initialize the SDK
-  const inbox = createInboxSDK({
+  const mayl = createMayl({
     apiKey: process.env.INBOX_API_KEY || 'demo-api-key',
     // baseUrl: 'https://api.your-domain.com', // Uncomment for custom API URL
     timeout: 30000
@@ -23,13 +23,13 @@ async function main() {
 
     // 1. Health Check
     console.log('1. Performing health check...');
-    const health = await inbox.healthCheck();
+    const health = await mayl.healthCheck();
     console.log(`   Status: ${health.status}`);
     console.log(`   Message: ${health.message}\n`);
 
     // 2. Create a temporary email address
     console.log('2. Creating temporary email address...');
-    const tempEmail = await inbox.emailAddresses.create({
+    const tempEmail = await mayl.emailAddresses.create({
       type: 'temporary',
       expirationMinutes: 60,
       prefix: 'agent-demo',
@@ -44,7 +44,7 @@ async function main() {
 
     // 3. Create a persistent email address
     console.log('3. Creating persistent email address...');
-    const persistentEmail = await inbox.emailAddresses.create({
+    const persistentEmail = await mayl.emailAddresses.create({
       type: 'persistent',
       prefix: 'support-demo',
       metadata: {
@@ -56,7 +56,7 @@ async function main() {
 
     // 4. Send a simple email
     console.log('4. Sending simple email...');
-    const simpleEmail = await inbox.emails.send({
+    const simpleEmail = await mayl.emails.send({
       fromEmailId: tempEmail.id,
       to: [
         { email: 'demo@example.com', name: 'Demo User' }
@@ -83,7 +83,7 @@ async function main() {
     // 5. Send email with attachments (simulated)
     console.log('5. Sending email with attachment...');
     const attachmentContent = Buffer.from('This is a demo file content', 'utf-8');
-    const emailWithAttachment = await inbox.emails.send({
+    const emailWithAttachment = await mayl.emails.send({
       fromEmailId: persistentEmail.id,
       to: [{ email: 'demo@example.com' }],
       subject: 'Email with Attachment',
@@ -103,7 +103,7 @@ async function main() {
     const scheduledTime = new Date();
     scheduledTime.setMinutes(scheduledTime.getMinutes() + 5); // 5 minutes from now
 
-    const scheduledEmail = await inbox.emails.send({
+    const scheduledEmail = await mayl.emails.send({
       fromEmailId: tempEmail.id,
       to: [{ email: 'demo@example.com' }],
       subject: 'Scheduled Email',
@@ -115,7 +115,7 @@ async function main() {
 
     // 7. List email addresses
     console.log('7. Listing email addresses...');
-    const emailList = await inbox.emailAddresses.list({
+    const emailList = await mayl.emailAddresses.list({
       pagination: { page: 1, limit: 5 }
     });
     console.log(`   Found ${emailList.total} total email addresses:`);
@@ -126,7 +126,7 @@ async function main() {
 
     // 8. List sent emails
     console.log('8. Listing sent emails...');
-    const sentEmailsList = await inbox.emails.list({
+    const sentEmailsList = await mayl.emails.list({
       pagination: { page: 1, limit: 3 }
     });
     console.log(`   Found ${sentEmailsList.total} total sent emails:`);
@@ -137,7 +137,7 @@ async function main() {
 
     // 9. Get account information
     console.log('9. Getting account information...');
-    const accountInfo = await inbox.getAccountInfo();
+    const accountInfo = await mayl.getAccountInfo();
     console.log(`   Account ID: ${accountInfo.accountId}`);
     console.log(`   Plan: ${accountInfo.plan}`);
     console.log(`   Email addresses: ${accountInfo.emailAddressUsed}/${accountInfo.emailAddressLimit}`);
@@ -145,7 +145,7 @@ async function main() {
 
     // 10. Extend temporary email (demonstration)
     console.log('10. Extending temporary email...');
-    const extendedEmail = await inbox.emailAddresses.extend(tempEmail.id, 30);
+    const extendedEmail = await mayl.emailAddresses.extend(tempEmail.id, 30);
     console.log(`    Extended expiration to: ${extendedEmail.expiresAt}\n`);
 
     console.log('✅ Example completed successfully!');

@@ -1,10 +1,10 @@
-# InboxSDK
+# Maylng
 
 SDKs for agentic email management - create email addresses and send emails programmatically for AI agents.
 
 ## Overview
 
-InboxSDK provides production-ready SDKs for managing email addresses and sending emails specifically designed for AI agents. Create temporary or persistent email addresses, send emails with attachments, track delivery, and manage conversations programmatically.
+Maylng provides production-ready SDKs for managing email addresses and sending emails specifically designed for AI agents. Create temporary or persistent email addresses, send emails with attachments, track delivery, and manage conversations programmatically.
 
 ## Features
 
@@ -22,22 +22,22 @@ InboxSDK provides production-ready SDKs for managing email addresses and sending
 Full-featured TypeScript SDK with complete type safety.
 
 ```bash
-npm install @inbox-sdk/typescript
+npm install maylng
 ```
 
 ```typescript
-import { createInboxSDK } from '@inbox-sdk/typescript';
+import { createMayl } from 'maylng';
 
-const inbox = createInboxSDK({ apiKey: 'your-api-key' });
+const mayl = createMayl({ apiKey: 'your-api-key' });
 
 // Create a temporary email
-const email = await inbox.emailAddresses.create({
+const email = await mayl.emailAddresses.create({
   type: 'temporary',
   expirationMinutes: 30
 });
 
 // Send an email
-await inbox.emails.send({
+await mayl.emails.send({
   fromEmailId: email.id,
   to: [{ email: 'user@example.com' }],
   subject: 'Hello from AI Agent',
@@ -52,18 +52,18 @@ await inbox.emails.send({
 Python SDK for server-side applications and data processing.
 
 ```python
-from inbox_sdk import InboxSDK
+from maylng import Mayl
 
-inbox = InboxSDK(api_key="your-api-key")
+mayl = Mayl(api_key="your-api-key")
 
 # Create email address
-email = inbox.email_addresses.create(
+email = mayl.email_addresses.create(
     type="temporary",
     expiration_minutes=30
 )
 
 # Send email
-inbox.emails.send(
+mayl.emails.send(
     from_email_id=email.id,
     to=[{"email": "user@example.com"}],
     subject="Hello from AI Agent",
@@ -75,7 +75,7 @@ inbox.emails.send(
 
 ## Quick Start
 
-1. **Get API Key**: Sign up at [inbox-sdk.com](https://inbox-sdk.com) to get your API key
+1. **Get API Key**: Sign up at [maylng.com](https://maylng.com) to get your API key
 2. **Install SDK**: Choose your preferred language and install the SDK
 3. **Initialize**: Create an SDK instance with your API key
 4. **Create Email**: Create a temporary or persistent email address
@@ -93,15 +93,15 @@ inbox.emails.send(
 
 - [TypeScript SDK](./ts/README.md) - Complete TypeScript SDK documentation
 - [Python SDK](./python/README.md) - Python SDK documentation (coming soon)
-- [API Reference](https://docs.inbox-sdk.com/api) - REST API documentation
+- [API Reference](https://docs.maylng.com/api) - REST API documentation
 - [Examples](./examples/) - Code examples and tutorials
 
 ## Support
 
-- 📖 [Documentation](https://docs.inbox-sdk.com)
-- 💬 [Discord Community](https://discord.gg/inbox-sdk)
+- 📖 [Documentation](https://docs.maylng.com)
+- 💬 [Discord Community](https://discord.gg/maylng)
 - 🐛 [Issue Tracker](https://github.com/KnextKoder/inbox-sdk/issues)
-- 📧 [Email Support](mailto:support@inbox-sdk.com)
+- 📧 [Email Support](mailto:support@maylng.com)
 
 ## License
 

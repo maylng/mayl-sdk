@@ -1,9 +1,9 @@
 // Main exports
-export { InboxSDK, createInboxSDK } from './inbox-sdk';
+export { Mayl, createMayl } from './mayl-sdk';
 
 // Type exports
 export type {
-  InboxSDKConfig,
+  MaylConfig,
   CreateEmailAddressOptions,
   EmailAddress,
   EmailRecipient,
@@ -17,7 +17,7 @@ export type {
 
 // Error exports
 export {
-  InboxSDKError,
+  MaylError,
   AuthenticationError,
   AuthorizationError,
   NotFoundError,
