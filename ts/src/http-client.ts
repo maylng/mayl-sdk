@@ -21,7 +21,7 @@ export class HTTPClient {
 
   constructor(config: MaylConfig) {
     this.config = {
-      baseUrl: 'https://api.maylng.com', // TODO: Update with actual API URL
+      baseUrl: 'http://maylng-api.eastus.azurecontainer.io:8080',
       timeout: 30000,
       ...config
     };

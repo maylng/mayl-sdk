@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "maylng"
-version = "0.2.1b0"
+version = "0.2.1b2"
 description = "Maylng - Python SDK for agentic email management. Create email addresses and send emails programmatically for AI agents."
 readme = "README.md"
 license = "MIT"

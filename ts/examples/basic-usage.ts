@@ -14,7 +14,7 @@ async function main() {
   // Initialize the SDK
   const mayl = createMayl({
     apiKey: process.env.INBOX_API_KEY || 'demo-api-key',
-    // baseUrl: 'https://api.your-domain.com', // Uncomment for custom API URL
+    // baseUrl: 'http://maylng-api.eastus.azurecontainer.io:8080', // Uncomment for custom API URL
     timeout: 30000
   });
 

@@ -244,7 +244,7 @@ mayl = Mayl(api_key="your-api-key")
 # Custom configuration
 mayl = Mayl(
     api_key="your-api-key",
-    base_url="https://api.custom-domain.com",
+    base_url="http://maylng-api.eastus.azurecontainer.io:8080",
     timeout=60,  # seconds
     max_retries=3,
     retry_delay=1.0  # seconds

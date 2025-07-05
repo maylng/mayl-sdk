@@ -14,7 +14,7 @@ import { createMayl } from 'maylng';
 // Initialize the SDK
 const mayl = createMayl({
   apiKey: 'your-api-key-here',
-  // baseUrl: 'https://api.your-domain.com' // Optional, defaults to production
+  // baseUrl: 'http://maylng-api.eastus.azurecontainer.io:8080' // Optional, defaults to production
 });
 
 // Health check
@@ -250,7 +250,7 @@ try {
 ```typescript
 const mayl = createMayl({
   apiKey: 'your-api-key',
-  baseUrl: 'https://api.your-domain.com',
+  baseUrl: 'http://maylng-api.eastus.azurecontainer.io:8080',
   timeout: 60000 // 60 seconds
 });
 ```
