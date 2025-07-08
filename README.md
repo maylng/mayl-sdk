@@ -92,15 +92,14 @@ mayl.emails.send(
 ## Documentation
 
 - [TypeScript SDK](./ts/README.md) - Complete TypeScript SDK documentation
-- [Python SDK](./python/README.md) - Python SDK documentation (coming soon)
-- [API Reference](https://docs.maylng.com/api) - REST API documentation
+- [Python SDK](./python/README.md) - Python SDK documentation
+- [API Reference-coming soon](https://docs.maylng.com/api) - REST API documentation
 - [Examples](./examples/) - Code examples and tutorials
 
 ## Support
 
-- 📖 [Documentation](https://docs.maylng.com)
-- 💬 [Discord Community](https://discord.gg/maylng)
-- 🐛 [Issue Tracker](https://github.com/KnextKoder/inbox-sdk/issues)
+- 📖 [Documentation-coming soon](https://docs.maylng.com)
+- 🐛 [Issue Tracker](https://github.com/maylng/mayl-sdk/issues)
 - 📧 [Email Support](mailto:support@maylng.com)
 
 ## License

@@ -5,7 +5,7 @@ import { MaylConfig } from './types';
 import { ValidationError } from './errors';
 
 /**
- * Main Mayl client for managing email addresses and sending emails
+ * Mayl client for managing email addresses and sending emails
  */
 export class Mayl {
   private httpClient: HTTPClient;

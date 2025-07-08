@@ -21,7 +21,7 @@ export class HTTPClient {
 
   constructor(config: MaylConfig) {
     this.config = {
-      baseUrl: 'http://maylng-api.eastus.azurecontainer.io:8080',
+      baseUrl: 'http://api.mayl.ng:8080',
       timeout: 30000,
       ...config
     };

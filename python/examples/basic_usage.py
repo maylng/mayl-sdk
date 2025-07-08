@@ -30,7 +30,7 @@ def sync_examples():
     # Initialize the SDK
     mayl = Mayl(
         api_key=os.getenv("MAYLNG_API_KEY", "demo-api-key"),
-        # base_url="http://maylng-api.eastus.azurecontainer.io:8080",  # Uncomment for custom API URL
+        # base_url="http://api.mayl.ng:8080",  # Uncomment for custom API URL
         timeout=30.0,
         max_retries=3
     )

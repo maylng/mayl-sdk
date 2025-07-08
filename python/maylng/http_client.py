@@ -41,7 +41,7 @@ class HTTPClient:
         """Prepare and validate configuration."""
         return {
             "api_key": config["api_key"],
-            "base_url": config.get("base_url", "http://maylng-api.eastus.azurecontainer.io:8080"),
+            "base_url": config.get("base_url", "http://api.mayl.ng:8080"),
             "timeout": config.get("timeout", 30.0),
             "max_retries": config.get("max_retries", 3),
             "retry_delay": config.get("retry_delay", 1.0),
@@ -209,7 +209,7 @@ class AsyncHTTPClient:
         """Prepare and validate configuration."""
         return {
             "api_key": config["api_key"],
-            "base_url": config.get("base_url", "http://maylng-api.eastus.azurecontainer.io:8080"),
+            "base_url": config.get("base_url", "http://api.mayl.ng:8080"),
             "timeout": config.get("timeout", 30.0),
             "max_retries": config.get("max_retries", 3),
             "retry_delay": config.get("retry_delay", 1.0),

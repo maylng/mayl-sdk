@@ -64,7 +64,7 @@ console.log('Email sent:', sentEmail.id);
 
 ## API Reference
 
-### InboxSDK
+### MaylSDK
 
 Main client class for interacting with the API.
 
@@ -175,8 +175,8 @@ See [EXAMPLES.md](./EXAMPLES.md) for comprehensive usage examples including:
 
 ```bash
 # Clone the repository
-git clone https://github.com/KnextKoder/inbox-sdk.git
-cd inbox-sdk/ts
+git clone https://github.com/maylng/mayl-sdk.git
+cd mayl-sdk/ts
 
 # Install dependencies
 npm install
@@ -233,7 +233,7 @@ When rate limited, the SDK will throw a `RateLimitError` with retry information.
 
 - 📖 [Documentation](https://docs.maylng.com)
 - 💬 [Discord Community](https://discord.gg/maylng)
-- 🐛 [Issue Tracker](https://github.com/KnextKoder/inbox-sdk/issues)
+- 🐛 [Issue Tracker](https://github.com/maylng/mayl-sdk/issues)
 - 📧 [Email Support](mailto:support@maylng.com)
 
 ## License

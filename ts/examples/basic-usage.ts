@@ -13,8 +13,8 @@ import { createMayl } from '../src/index';
 async function main() {
   // Initialize the SDK
   const mayl = createMayl({
-    apiKey: process.env.INBOX_API_KEY || 'demo-api-key',
-    // baseUrl: 'http://maylng-api.eastus.azurecontainer.io:8080', // Uncomment for custom API URL
+    apiKey: process.env.MAYL_API_KEY || 'demo-api-key',
+    // baseUrl: 'http://api.mayl.ng:8080',
     timeout: 30000
   });
 
@@ -39,8 +39,8 @@ async function main() {
         createdBy: 'example-script'
       }
     });
-    console.log(`   Created: ${tempEmail.email}`);
-    console.log(`   Expires: ${tempEmail.expiresAt}\n`);
+    console.log(`Created: ${tempEmail.email}`);
+    console.log(`Expires: ${tempEmail.expiresAt}\n`);
 
     // 3. Create a persistent email address
     console.log('3. Creating persistent email address...');
